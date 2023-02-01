@@ -1,3 +1,4 @@
+import React from "react";
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import App from "../App";
 import userEvent from "@testing-library/user-event";
@@ -14,7 +15,7 @@ describe("appearance", () => {
   test("it should have four inputs", () => {
     render(<App />);
     const inputs = screen.getAllByTitle("input");
-    expect(inputs.length).toBe(4);
+    expect(inputs.length).toBe(5);
   });
 
   test("it should have a date input", () => {
@@ -31,6 +32,7 @@ describe("appearance", () => {
   test("cart value input should required", () => {
     render(<App />);
     const cartValue = screen.getByTestId("cart-value");
+
     expect(cartValue).toHaveAttribute("required");
   });
 
@@ -81,7 +83,7 @@ describe("validation", () => {
     const deliveryDistance = screen.getByTestId("delivery-distance");
     expect(deliveryDistance).toHaveAttribute("required");
   });
-  test("amouny input should required", () => {
+  test("amount input should required", () => {
     render(<App />);
     const amount = screen.getByTestId("amount");
     expect(amount).toHaveAttribute("required");
@@ -119,13 +121,13 @@ describe("validation", () => {
 
   test("it should not allow letters to be entered into cartvalue amount ", () => {
     const app = render(<App />);
-    const cartvalue = screen
+    const amount = screen
       .getByTestId("amount")
       .querySelector("input") as HTMLInputElement;
 
-    userEvent.type(cartvalue, "abc");
-    fireEvent.change(cartvalue, { target: "" });
+    userEvent.type(amount, "abc");
+    fireEvent.change(amount, { target: "" });
 
-    expect(cartvalue.value).toBe("");
+    expect(amount.value).toBe("");
   });
 });
