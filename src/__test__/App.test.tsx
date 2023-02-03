@@ -1,4 +1,3 @@
-import React from "react";
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import App from "../App";
 import userEvent from "@testing-library/user-event";
@@ -7,7 +6,7 @@ describe("appearance", () => {
   afterEach(cleanup);
   test("it should have a form", () => {
     render(<App />);
-    const form = screen.getByRole("form");
+    const form = screen.getByTestId("form");
 
     expect(form).toBeInTheDocument();
   });

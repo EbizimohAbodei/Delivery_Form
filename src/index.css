@@ -18,3 +18,16 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+.field {
+  margin: 0.7rem 0 0.2rem 0.6rem;
+}
+
+.dateInput {
+  width: 7.8rem;
+  margin-right: 1rem;
+}
+
+.timeInput {
+  width: 5.3rem;
+}

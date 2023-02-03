@@ -296,7 +296,7 @@ describe("date", () => {
 
     userEvent.tab();
     userEvent.clear(time);
-    userEvent.type(time, "16:19");
+    userEvent.type(time, "18:19");
 
     userEvent.click(button);
     expect(deliveryFee.textContent).not.toBe("5.00 €");
