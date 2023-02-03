@@ -231,8 +231,8 @@ function App() {
           Calculate Delivery Price
         </Button>
 
-        <div className="background-color: powderblue deliveryFee mt-5">
-          <span className="font-semibold text-xl ">Delivery Fee:</span>{" "}
+        <div className="deliveryFee background-color: powderblue deliveryFee mt-5">
+          <span className="font-semibold text-xl">Delivery Fee:</span>{" "}
           <span className="text-xl ml-4" data-testid="fee">
             {deliveryFee && deliveryFee.toFixed(2)} €
           </span>

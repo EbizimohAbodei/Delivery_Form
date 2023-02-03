@@ -2,9 +2,9 @@
 
 This is a typescript-react based project that calculates a delivery fee based on user inputs. Conditions are defined for each input, which in turn affects the delivery fee charged. These conditions include:
 
-- Delivery fee must not be more that 15 Euros
+- Delivery fee cannot be more that 15 Euros
 - If the cart item is equal to or less that four(4), no surcharge is added to the delivery fee. However a 0.50 Euro is added for each addiditonal item. Furthermore, if the cart items are more than twelve(12), an extra bulk fee of 1.20 euros will be applied.
-- If the cart value is less that 1000 cents (10 Euros), the surcharge will be the difference between the 10 and the number entered by the user.
+- If the cart value is less that 1000 cents (10 Euros), a surcharge will be added, which is the difference between 10 and the number entered by the user.
 - A base delivery fee of two(2) euros is charged for distance (in meters) equal or less than 1000. A one(1) euro surcharge will be added for every additional 500 meters.
 - on Fridays between 3pm - 7pm - rush hour, the overall delivery fee is increased by 20%.
 

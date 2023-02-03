@@ -31,3 +31,11 @@ input[type="number"] {
 .timeInput {
   width: 5.3rem;
 }
+
+.deliveryFee {
+  padding: 0.5rem;
+  background-color: #e5edec;
+  display: flex;
+  justify-content: center;
+  border-radius: 0.2rem;
+}
