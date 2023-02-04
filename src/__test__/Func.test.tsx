@@ -111,6 +111,7 @@ describe("surcharge  for delivery distance", () => {
     expect(deliveryFee.textContent).toBe("2.00 €");
     // screen.debug(deliveryDistance);
   });
+
   it("it should add an additional 1.00 € delivery fee for every 500m if the delivery fee is above 1000m", async () => {
     render(<App />);
     const deliveryFee = screen.getByTestId("fee");
@@ -139,7 +140,7 @@ describe("surcharge  for delivery distance", () => {
 });
 
 describe("Cart Value", () => {
-  it("it should return a 0 € delivery fee if cart value is greater than 10€", async () => {
+  it("it should return a the base delivery fee (2 EUR) if cart value is greater than 10€", async () => {
     render(<App />);
     const deliveryFee = screen.getByTestId("fee");
 
@@ -163,6 +164,7 @@ describe("Cart Value", () => {
 
     expect(deliveryFee.textContent).toBe("2.00 €");
   });
+
   it("cart value less than 10€ should return a delivery fee of (10€ - cartvalue)  ", async () => {
     render(<App />);
     const deliveryFee = screen.getByTestId("fee");
@@ -190,7 +192,7 @@ describe("Cart Value", () => {
 });
 
 describe("Amount of item", () => {
-  it("it should return a 0 € delivery fee if amount of item is less than 5", async () => {
+  it("it should return a the base delivery fee if amount of item is less than 5", async () => {
     render(<App />);
     const deliveryFee = screen.getByTestId("fee");
 
@@ -214,7 +216,8 @@ describe("Amount of item", () => {
 
     expect(deliveryFee.textContent).toBe("2.00 €");
   });
-  it("An additional 5 cent delivery fee should be added if amount of item is 5 and above", async () => {
+
+  it("An additional 50 cent should be added to the delivery fee if amount of items are 5 and above", async () => {
     render(<App />);
     const deliveryFee = screen.getByTestId("fee");
 
@@ -238,7 +241,8 @@ describe("Amount of item", () => {
 
     expect(deliveryFee.textContent).toBe("2.50 €");
   });
-  it("120 cent surcharge should be added to the overall delivery fee if amount of item is above 12", async () => {
+
+  it("1.20 cent surcharge should be added to the overall delivery fee if amount of item is above 12", async () => {
     render(<App />);
     const deliveryFee = screen.getByTestId("fee");
 
@@ -303,6 +307,7 @@ describe("date", () => {
 
     expect(deliveryFee.textContent).toBe("6.00 €");
   });
+
   it("it should return a delivery fee of 15 € maximum", async () => {
     render(<App />);
 
