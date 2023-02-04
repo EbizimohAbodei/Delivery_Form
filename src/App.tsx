@@ -19,7 +19,7 @@ interface IInput {
 }
 
 function App() {
-  // Declaring useState variables for storing inputs
+  // Declaring useState variables for storing inputed data
   const [input, setInput] = useState<IInput>({
     deliveryDistance: "",
     cartValue: "",
@@ -222,6 +222,7 @@ function App() {
             data-testid="time"
           />
         </fieldset>
+
         <Button
           type="submit"
           variant="contained"

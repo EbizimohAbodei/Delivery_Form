@@ -11,7 +11,7 @@ describe("appearance", () => {
     expect(form).toBeInTheDocument();
   });
 
-  test("it should have four inputs", () => {
+  test("it should have five inputs", () => {
     render(<App />);
     const inputs = screen.getAllByTitle("input");
     expect(inputs.length).toBe(5);
@@ -31,58 +31,16 @@ describe("appearance", () => {
   test("cart value input should required", () => {
     render(<App />);
     const cartValue = screen.getByTestId("cart-value");
-
     expect(cartValue).toHaveAttribute("required");
   });
 
-  test("it should contain input for amount", () => {
+  test("it should contain input for amount of items", () => {
     render(<App />);
     const amount = screen.getByTestId("amount");
     expect(amount).toBeInTheDocument();
   });
-  test("it should have a submit button", () => {
-    render(<App />);
-    const buttonElement = screen.getByTestId("submit-button");
 
-    expect(buttonElement).toBeInTheDocument();
-  });
-
-  test("cart value input should have a change event", () => {
-    render(<App />);
-    const cartValue = screen
-      .getByTestId("cart-value")
-      .querySelector("input") as HTMLInputElement;
-    const testvalue = 300;
-    fireEvent.change(cartValue, { target: { value: testvalue } });
-    expect(cartValue.valueAsNumber).toBe(testvalue);
-  });
-  test("delivery distance input should have a change event", () => {
-    render(<App />);
-    const deliveryDistance = screen
-      .getByTestId("delivery-distance")
-      .querySelector("input") as HTMLInputElement;
-    const testvalue = 300;
-    fireEvent.change(deliveryDistance, { target: { value: testvalue } });
-    expect(deliveryDistance.valueAsNumber).toBe(testvalue);
-  });
-  test("Amount input should have a change event", () => {
-    render(<App />);
-    const amount = screen
-      .getByTestId("amount")
-      .querySelector("input") as HTMLInputElement;
-    const testvalue = 300;
-    fireEvent.change(amount, { target: { value: testvalue } });
-    expect(amount.valueAsNumber).toBe(testvalue);
-  });
-});
-
-describe("validation", () => {
-  test("delivery distance input should required", () => {
-    render(<App />);
-    const deliveryDistance = screen.getByTestId("delivery-distance");
-    expect(deliveryDistance).toHaveAttribute("required");
-  });
-  test("amount input should required", () => {
+  test("amount of items input should be required", () => {
     render(<App />);
     const amount = screen.getByTestId("amount");
     expect(amount).toHaveAttribute("required");
@@ -92,6 +50,50 @@ describe("validation", () => {
     render(<App />);
     const deliveryDistance = screen.getByTestId("delivery-distance");
     expect(deliveryDistance).toBeInTheDocument();
+  });
+
+  describe("validation", () => {
+    test("delivery distance input should required", () => {
+      render(<App />);
+      const deliveryDistance = screen.getByTestId("delivery-distance");
+      expect(deliveryDistance).toHaveAttribute("required");
+    });
+
+    test("it should have a submit button", () => {
+      render(<App />);
+      const buttonElement = screen.getByTestId("submit-button");
+      expect(buttonElement).toBeInTheDocument();
+    });
+
+    test("cart value input should have a change event", () => {
+      render(<App />);
+      const cartValue = screen
+        .getByTestId("cart-value")
+        .querySelector("input") as HTMLInputElement;
+      const testvalue = 300;
+      fireEvent.change(cartValue, { target: { value: testvalue } });
+      expect(cartValue.valueAsNumber).toBe(testvalue);
+    });
+
+    test("delivery distance input should have a change event", () => {
+      render(<App />);
+      const deliveryDistance = screen
+        .getByTestId("delivery-distance")
+        .querySelector("input") as HTMLInputElement;
+      const testvalue = 300;
+      fireEvent.change(deliveryDistance, { target: { value: testvalue } });
+      expect(deliveryDistance.valueAsNumber).toBe(testvalue);
+    });
+
+    test("Amount input should have a change event", () => {
+      render(<App />);
+      const amount = screen
+        .getByTestId("amount")
+        .querySelector("input") as HTMLInputElement;
+      const testvalue = 300;
+      fireEvent.change(amount, { target: { value: testvalue } });
+      expect(amount.valueAsNumber).toBe(testvalue);
+    });
   });
 
   test("it should not allow letters to be entered into cartvalue input ", () => {
@@ -118,7 +120,7 @@ describe("validation", () => {
     expect(input.value).toBe("");
   });
 
-  test("it should not allow letters to be entered into cartvalue amount ", () => {
+  test("it should not allow letters to be entered into items amount ", () => {
     const app = render(<App />);
     const amount = screen
       .getByTestId("amount")
