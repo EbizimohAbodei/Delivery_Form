@@ -102,19 +102,19 @@ function App() {
     setAmountError(false);
 
     // allows the implementation of an input error if cart value is 0
-    if (Number(input.cartValue) === 0) {
+    if (Number(input.cartValue) <= 0) {
       setCartError(true);
       return;
     }
 
     // allows the implementation of an input error if delivery distance is 0
-    if (Number(input.deliveryDistance) === 0) {
+    if (Number(input.deliveryDistance) <= 0) {
       setDeliveryDistanceError(true);
       return;
     }
 
     // allows the implementation of an input error if amount of cart items is 0
-    if (Number(input.amount) === 0) {
+    if (Number(input.amount) <= 0) {
       setAmountError(true);
       return;
     }
@@ -232,7 +232,7 @@ function App() {
           Calculate Delivery Price
         </Button>
 
-        <div className="deliveryFee background-color: powderblue deliveryFee mt-5">
+        <div className="background-color: powderblue deliveryFee mt-5">
           <span className="font-semibold text-xl">Delivery Fee:</span>{" "}
           <span className="text-xl ml-4" data-testid="fee">
             {deliveryFee && deliveryFee.toFixed(2)} €
